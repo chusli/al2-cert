@@ -4,13 +4,13 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DiscountTest {
 
     @Test
-    public void discountFor() {
-        Discount discount = new Discount();
+    public void discountForOver1000() {
+        Discount discount = new TestableDiscount();
 
         Money net = new Money(1002);
         Money total = discount.discountFor(net);
@@ -18,4 +18,74 @@ public class DiscountTest {
         assertEquals(new Money(new BigDecimal("901.8")), total);
     }
 
+    @Test
+    void whenUnder100ThenReturnNoDiscount() {
+        Discount discount = new TestableDiscount();
+
+        Money net = new Money(12);
+        Money total = discount.discountFor(net);
+
+        assertEquals(new Money(new BigDecimal("12")), total);
+    }
+
+    @Test
+    void whenOver100ThenReturnDiscountBy5() {
+        Discount discount = new TestableDiscount(false, true);
+
+        Money net = new Money(200);
+        Money total = discount.discountFor(net);
+
+        assertEquals(new Money(new BigDecimal("190")), total);
+    }
+
+    @Test
+    void whenDiscountNotActiveReturnNetPrice() {
+        Discount discount = new TestableDiscount();
+
+        Money net = new Money(110);
+        Money total = discount.discountFor(net);
+        assertEquals(new Money(new BigDecimal("110")), total);
+    }
+
+    @Test
+    void whenCrazyDiscountActiveThenReturnDiscountBy15() {
+        Discount discount = new TestableDiscount(true, true);
+
+        Money net = new Money(100);
+        Money total = discount.discountFor(net);
+
+        assertEquals(new Money(new BigDecimal("85")), total);
+    }
+
+    private static class TestableDiscount extends Discount {
+        public TestableDiscount() {
+            super(new TestableMarketingCampaign(false, false));
+        }
+
+        public TestableDiscount(boolean isCrazySalesDay, boolean isActive) {
+            super(new TestableMarketingCampaign(isCrazySalesDay, isActive));
+        }
+    }
+
+
+    private static class TestableMarketingCampaign extends MarketingCampaign {
+        private final boolean isCrazySalesDay;
+        private final boolean isActive;
+
+        public TestableMarketingCampaign(boolean isCrazySalesDay, boolean isActive) {
+            this.isCrazySalesDay = isCrazySalesDay;
+            this.isActive = isActive;
+        }
+
+        @Override
+        public boolean isCrazySalesDay() {
+            return isCrazySalesDay;
+        }
+
+        @Override
+        public boolean isActive() {
+            return isActive;
+        }
+
+    }
 }
