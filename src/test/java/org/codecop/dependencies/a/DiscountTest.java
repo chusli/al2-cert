@@ -1,13 +1,15 @@
 package org.codecop.dependencies.a;
 
+import org.junit.jupiter.api.Test;
+
 import java.math.BigDecimal;
 
 import static org.junit.Assert.assertEquals;
 
 public class DiscountTest {
 
-    @org.junit.jupiter.api.Test
-    public void test1() {
+    @Test
+    public void discountFor() {
         Discount discount = new Discount();
 
         Money net = new Money(1002);
