@@ -26,13 +26,17 @@ prüfen zu können.
 
 ## Commit d536024a
 
-Zuletzt habe ich die beiden Seams extrahiert und in eigene Dateien verschoben. Es war etwas störend, in einer Testklasse
-gleich zwei Subklassen zu haben.
+Auslagerung der zuvor in der Testklasse definierten Seams in eigene Dateien, um die Tests übersichtlicher und klarer
+strukturiert zu halten.
+
+## Commit 991be226
+
+Ergänzung weiterer Tests: ein parametrized Test für die Grenzwerte (100 / 1000) sowie ein Test, der sicherstellt, dass
+der Crazy-Sales-Day alle regulären Rabattregeln überschreibt.
 
 # Fazit
 
-Durch das Einführen des Seams über einen erweiterten Konstruktor und das klare Trennen der testrelevanten Varianten
-mittels Subklassen konnte der zuvor schwer testbare Code effektiv isoliert und vollständig abgedeckt werden. Die
-Struktur ist nun nachvollziehbarer, und die Tests bilden das Verhalten zuverlässig ab. Die Aufgabe zeigt erneut, wie
-zentral kontrollierte Abhängigkeiten für testbaren Code sind und wie kleine strukturelle Anpassungen grossen Einfluss
-auf die Wartbarkeit haben.
+Durch das Einführen eines klaren Seams über den erweiterten Konstruktor und das gezielte Trennen testrelevanter
+Varianten konnte die ursprünglich schwer testbare Rabattlogik sicher isoliert und vollständig abgedeckt werden.
+Die Struktur ist nun besser verständlich, die Tests reproduzierbar und stabil. Die Übung unterstreicht, wie wichtig
+entkoppelte Abhängigkeiten für testbaren und langfristig wartbaren Code sind.
