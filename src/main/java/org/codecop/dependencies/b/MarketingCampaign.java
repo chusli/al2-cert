@@ -15,18 +15,10 @@ public class MarketingCampaign {
     }
 
     public boolean isActive() {
-        return isCampaingActive();
-    }
-
-    public boolean isCrazySalesDay() {
-        return isTodayAFriday();
-    }
-
-    boolean isCampaingActive() {
         return clock.currentTimeMillis() % 2 == 0;
     }
 
-    boolean isTodayAFriday() {
+    public boolean isCrazySalesDay() {
         return clock.currentDayOfWeek().compareTo(DayOfWeek.FRIDAY) == 0;
     }
 
