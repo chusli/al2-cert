@@ -4,6 +4,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 
 public class MarketingCampaign {
+    private static final DayOfWeek CRAZY_SALES_DAY = DayOfWeek.FRIDAY;
     private final Clock clock;
 
     public MarketingCampaign() {
@@ -19,7 +20,7 @@ public class MarketingCampaign {
     }
 
     public boolean isCrazySalesDay() {
-        return clock.currentDayOfWeek().compareTo(DayOfWeek.FRIDAY) == 0;
+        return clock.currentDayOfWeek().compareTo(CRAZY_SALES_DAY) == 0;
     }
 
     public static class Clock {
