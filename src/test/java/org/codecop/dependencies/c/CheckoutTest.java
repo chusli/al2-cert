@@ -7,7 +7,7 @@ import static org.junit.Assert.assertNotNull;
 public class CheckoutTest {
 
     @Test
-    public void test3() {
+    public void createReceipt() {
         Checkout checkout = new TestableCheckout();
 
         checkout.createReceipt(new Money(12));
