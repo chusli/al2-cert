@@ -8,10 +8,10 @@ public class CheckoutTest {
 
     @Test
     public void test3() {
-        Checkout checkout = new Checkout();
-        
+        Checkout checkout = new TestableCheckout();
+
         checkout.createReceipt(new Money(12));
-        
+
         assertNotNull(checkout);
     }
 }
