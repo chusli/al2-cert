@@ -24,6 +24,11 @@ liess sich die Testabdeckung auf 100% erhöhen. Da der Originalcode schwer vorhe
 Testklasse zwei einfache Subklassen für Discount und MarketingCampaign angelegt, um die verschiedenen Pfade stabil
 prüfen zu können.
 
+## Commit d536024a
+
+Zuletzt habe ich die beiden Seams extrahiert und in eigene Dateien verschoben. Es war etwas störend, in einer Testklasse
+gleich zwei Subklassen zu haben.
+
 # Fazit
 
 Durch das Einführen des Seams über einen erweiterten Konstruktor und das klare Trennen der testrelevanten Varianten
