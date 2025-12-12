@@ -57,35 +57,4 @@ public class DiscountTest {
         assertEquals(new Money(new BigDecimal("85")), total);
     }
 
-    private static class TestableDiscount extends Discount {
-        public TestableDiscount() {
-            super(new TestableMarketingCampaign(false, false));
-        }
-
-        public TestableDiscount(boolean isCrazySalesDay, boolean isActive) {
-            super(new TestableMarketingCampaign(isCrazySalesDay, isActive));
-        }
-    }
-
-
-    private static class TestableMarketingCampaign extends MarketingCampaign {
-        private final boolean isCrazySalesDay;
-        private final boolean isActive;
-
-        public TestableMarketingCampaign(boolean isCrazySalesDay, boolean isActive) {
-            this.isCrazySalesDay = isCrazySalesDay;
-            this.isActive = isActive;
-        }
-
-        @Override
-        public boolean isCrazySalesDay() {
-            return isCrazySalesDay;
-        }
-
-        @Override
-        public boolean isActive() {
-            return isActive;
-        }
-
-    }
 }
