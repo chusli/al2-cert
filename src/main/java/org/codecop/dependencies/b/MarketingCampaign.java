@@ -6,18 +6,19 @@ import java.time.LocalDateTime;
 public class MarketingCampaign {
 
     public boolean isActive() {
-        return milliSeconds() % 2 == 0;
-    }
-
-    private long milliSeconds() {
-        return System.currentTimeMillis();
+        return isCampaingActive();
     }
 
     public boolean isCrazySalesDay() {
-        return dayOfWeek().compareTo(DayOfWeek.FRIDAY) == 0;
+        return isTodayAFriday();
     }
 
-    private DayOfWeek dayOfWeek() {
-        return LocalDateTime.now().getDayOfWeek();
+    boolean isCampaingActive() {
+        return System.currentTimeMillis() % 2 == 0;
     }
+
+    boolean isTodayAFriday() {
+        return LocalDateTime.now().getDayOfWeek().compareTo(DayOfWeek.FRIDAY) == 0;
+    }
+
 }
