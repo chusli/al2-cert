@@ -1,13 +1,3 @@
-9265ece0 hier habe ich einfach mal drauflos programmiert und eigentlich die ganze MarketingCampaign Logik in den Seam
-gepackt. So war ich natürlich extrem schnell bei 100% Testabdeckung aber irgendwie hat sich das nicht korrekt angefühlt.
-Was teste ich den eigentlich jetzt genau? Eigentlich nur mein Seam :)
-
-9ab8097a ich habe den vorherigen Ansatz verworfen und nun die Logik rund um die Business Rule (Cray Sale am Freitag,
-normaler Sale aktiv wenn Millisekunden eine gerade Zahl) mit einem Seam entkoppelt.
-So kann ich nun in meiner FakeUhr selber sagen, welchen Wochentag wir heute haben und was currentMillis() zurückgibt.
-Diesen Ansatz nutzen wir auch bei der Arbeit in der CSS. Deshalb konnte ich diese Entkopplung sehr schnell umsetzen und
-dann auch mit sinnvollen Tests abdecken.
-
 # Einleitung
 
 Ziel dieser Aufgabe war es, die nicht-deterministische Logik der Klasse `MarketingCampaign` testbar zu machen und
