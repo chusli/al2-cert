@@ -10,4 +10,8 @@ public class TestableCheckout extends Checkout {
     void persist(Receipt receipt) {
         this.receipts.add(receipt);
     }
+
+    public List<Receipt> getReceipts() {
+        return receipts;
+    }
 }

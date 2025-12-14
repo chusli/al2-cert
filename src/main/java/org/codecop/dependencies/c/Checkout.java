@@ -19,4 +19,5 @@ public class Checkout {
     void persist(Receipt receipt) {
         ReceiptRepository.store(receipt);
     }
+
 }
